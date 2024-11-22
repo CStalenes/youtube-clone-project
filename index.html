@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="styles/video.css">
+    <link rel="stylesheet" type="text/css" href="styles/header.css">
+    <link rel="stylesheet" type="text/css" href="styles/general.css">
+    <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
+
+    <style>
+    </style>
+    <title>Youtube-Clone </title>
+</head>
+<body>
+
+    <!-- DISPLAY PROPERTY NOTION -->
+    <!-- 1.block element = take up the entire line  -->
+    <!-- 2.inline-block element =   only take up as much space as needed en gros autant d'espace necessaire -->
+    <!-- inline element = appear within a line of text like <strong> -->
+
+    <!-- DIV -->
+    <!-- Div permet de cree une boite autour de notre contenu tt simplement -->
+    <!-- BLOCK ELEMENT dans un div prend toute la ligne à l'intérieur du div(container) plutot que la page-->
+    <!-- Utilité ça permet de bien séparé les different element(contenu) qu'on a non seulement dans un container mais ça evite 
+    les débordements des elements du container dans la page -->
+
+    <!-- DIC Nested Layout Technique -->
+    <!-- Quand on veux crée une structure de layout organisé il faut procéder par décomposition cad placer les div de façon horizontal ou vertical  -->
+    <!-- Et puis on peut les mixer pour faire une structure complexe  -->
+
+    <!-- Ne pas oublier inline-block permet d'avoir les element l'un à cote d'eux en prenant l'espace necessaire alors
+    que block permet d'avoir un element sur toute la ligne donc force chaque autre element à etre en dessous/au dessus de l'élement affiché en block -->
+    
+    <!--Le div du profile-pic par default est de 100 width donc faut le changer en dessous de 100 dc
+    50 pour que ça rentre dans la div info qui elle sera de 200 px de witdh-->
+
+    <!-- Dans notre cas comme avec le nested layout on a decomposer la card div preview en plusieurs div vertical et horizontale alors 
+    on doit naturellement enrouler (wrapped) l'img de la thumnail dans une div horizontal -->
+    
+    
+    <!-- La div nested Horizontal est dirigé en ligne gauche-droite par couche-->
+    <!-- La div nested Vertical est dirigé en ligne haut-bas par couche -->
+
+    <!-- La decomposition exacte est:
+
+        <div H class ="preview"> 
+            <div H classe ="thumbnail-row">     
+            <div H class ="">
+                <div V classe ="channel-pic">
+                <div V classe ="vid-info">
+    -->
+
+
+    <!-- Apres avoir stylisé par les div on ajoute les grid  -->
+
+    <!-- Comme on utilise les grid le witdh de 300px pour les thumbnail n'est plus necessaire  -->
+    
+    <!-- Comme notre header apparait derreière l'elem vignette alors on doit use z-index pour réglé ça -->
+    <!-- On a fin avec les semantic elem cad header pour le haut nav pour navigation et main pour contenu 
+    same as <div> have meaning to screen reader -->
+    <!--  -->
+
+    <header class="header">
+        <div class="first-section">
+           
+            <img class="hamburger-menu" src="styles/icons/menu-100.png">
+            <img class="youtube-logo" src="styles/icons/youtube-logo-96.png">
+
+        </div>
+
+        <div class="middle-section">
+            <input class="search-bar" type="text" placeholder="Search">
+            <button class="loupe-button"> <img class="loupe-logo"  src="styles/icons/loupe-100.png">   <div class="tooltip">Search</div> </button>
+            <button class="micro-button"> <img class="micro-logo" src="styles/icons/microphone-64.png">  <div class="tooltip">Search with Voice</div></button>
+        </div>
+
+        <div class="last-section">
+
+            <div class="record-logo-container">
+                <img class="record-logo" src="styles/icons/vid-record-64.png">
+                <div class="tooltip"> Create</div>
+            </div>
+
+            <div class="grid-logo-container">
+                <img class="grid-logo" src="styles/icons/miniatures-app-100.png">
+                <div class="tooltip"> Youtube Apps </div>
+            </div>
+
+            
+            <div class="notif-logo-container">
+                <img class="notif-logo" src="styles/icons/notifications-100.png"><!-- position absolu inside positio relative pour le nombre "3"-->
+                <div class="notif-count">3</div>
+                <div class="tooltip"> Notifications </div>
+            </div>
+
+            <div class="current-user-container">
+                <img class="current-user-logo" src="image-youtube/channel_picture.jpg">
+                <div class="tooltip"> Current User </div>
+
+            </div>
+
+                        
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <div class="sidebar-link">
+            <img src="styles/icons/home-96.png">
+            <div> Home</div>
+        </div>
+        <div class="sidebar-link"> 
+            <img src="styles/icons/explore-90.png">
+            <div> Explore</div>
+        </div>
+        <div class="sidebar-link"> 
+            <img src="styles/icons/subinscription-96.png">
+            <div> Subscriptions </div>
+        </div>
+        <div class="sidebar-link"> 
+            <img src="styles/icons/originals.png">
+            <div> Originals </div>
+        </div>
+        <div class="sidebar-link">
+            <img src="styles/icons/musique-youtube-100.png">
+            <div> Youtube Music </div>
+        </div>
+        <div class="sidebar-link">
+            <img src="styles/icons/library-youtube.png">
+            <div> Library </div>
+        </div>
+
+    </nav>
+    
+
+    <main>
+        <section class="video-grid">
+            <div class="video-preview">
+                <div class="thumbnail-row">
+
+                    <a href="https://www.youtube.com/watch?v=hFrAc9gET9M" target="_blank" class="video-title-link">
+                        <img class="thumbnail" src ="thumbnail-youtube/thumbnail-1.jpg">
+                    </a>
+                    <div class="video-time">10:18</div>
+                </div>
+                
+                <div class="video-info-grid">
+                    <div class="channel-picture">
+                        <a href="https://www.youtube.com/@DefendIntelligence" target="_blank">
+                            <img class="profile-picture"  src="image-youtube/img1_channels_profile.jpg">     
+                        </a>
+
+                        <div class="profile-tooltip">
+                            <div class="tooltip-content">
+                                <img class="tooltip-profile-picture" src="image-youtube/img1_channels_profile.jpg" alt="Defend Intelligence">
+                                <div class="tooltip-info-text">
+                                    <p class="tooltip-name-author">Defend Intelligence</p>
+                                    <p class="tooltip-subscribers">162k Subscribers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="video-info">
+                        <p class="video-title">
+                            C'est quoi un Ingénieur? Expliqué par un ingénieur
+                        </p>
+                        <p class="video-author"> Defend Intelligence </p>
+                        <p class="video-stats"> 216k vues &#183; il y a 4 ans </p>
+                    
+                    </div>
+                </div>
+            </div>
+        
+            <div class="video-preview">
+        
+                <div class="thumbnail-row">
+                    <a href="https://www.youtube.com/watch?v=WCxfpgRRgX8" target="_blank" class="video-title-link">
+                        <img class="thumbnail" src ="thumbnail-youtube/thumbnail-2.jpg">
+                    </a>
+                    <div class="video-time">2:20</div>
+                </div>
+                
+                <div class="video-info-grid">
+                    <div class="channel-picture">
+                        <a href="https://www.youtube.com/@NeoDigitalBernay" target="_blank"> 
+                            <img class="profile-picture"  src="image-youtube/img2_channels_profile.jpg">
+                        </a>
+                        <div class="profile-tooltip">
+                            <div class="tooltip-content">
+                                <img class="tooltip-profile-picture" src="image-youtube/img2_channels_profile.jpg" alt="neodigital group">
+                                <div class="tooltip-info-text">
+                                    <p class="tooltip-name-author">NeoDigital Group </p>
+                                    <p class="tooltip-subscribers">2,6k Subscribers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="video-info">
+                       
+                        <p class="video-title">L'intelligence artificielle: qu'est ce que c'est</p>
+                        <p class="video-author"> NeoDigital Group </p>
+                        <p class="video-stats"> 80k vues &#183; il y a 5 ans  </p>
+                    
+                    </div>
+                </div>
+            </div>
+        
+            <div class="video-preview">
+        
+                <div class="thumbnail-row">
+                    <a href="https://www.youtube.com/watch?v=OD42SWjPso4"  target="_blank" class="video-title-link">
+                        <img class="thumbnail" src ="thumbnail-youtube/thumbnail-3.jpg">
+                    </a>
+                    <div class="video-time">2:48</div>
+    
+                </div>
+                
+                <div class="video-info-grid">
+                   
+                    <div class="channel-picture">
+                        <a href="https://www.youtube.com/@CitedesEntreprises42" target="_blank">
+                            <img class="profile-picture"  src="image-youtube/img3_channels_profile.jpg">
+                        </a>
+                        <div class="profile-tooltip">
+                            <div class="tooltip-content">
+                                <img class="tooltip-profile-picture" src="image-youtube/img3_channels_profile.jpg" alt="umm loire cité entreprises">
+                                <div class="tooltip-info-text">
+                                    <p class="tooltip-name-author">  UMM Loire - Cité des Entreprises</p>
+                                    <p class="tooltip-subscribers">3,57k Subscribers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="video-info">
+                       
+                        <p class="video-title"> Découvrez la news interviews sur le métier de technicien indistrurielle</p> 
+                        <p class="video-author">
+                            UMM Loire - Cité des Entreprises
+                        </p>
+                        <p class="video-stats"> 130k vues &#183; il y a 8 ans </p>
+                    
+                    </div>
+                </div>
+            </div>
+        
+            <div class="video-preview">
+        
+                <div class="thumbnail-row">
+                    <a href="https://www.youtube.com/watch?v=kLjPrKneuH4"  target="_blank" class="video-title-link">
+                        <img class="thumbnail" src ="thumbnail-youtube/thumbnail-2.webp">
+                    </a>
+                    <div class="video-time">1:25</div>
+                </div> 
+                
+                <div class="video-info-grid">
+                   
+                    <div class="channel-picture">
+                        <a href="https://www.youtube.com/@next.concept" target="_blank">
+                            <img class="profile-picture"  src="image-youtube/img4_channels_profile.jpg">
+                        </a>
+                        <div class="profile-tooltip">
+                            <div class="tooltip-content">
+                                <img class="tooltip-profile-picture" src="image-youtube/img4_channels_profile.jpg" alt="next concept">
+                                <div class="tooltip-info-text">
+                                    <p class="tooltip-name-author">Next Concept</p>
+                                    <p class="tooltip-subscribers">488 Subscribers</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                      
+                    </div>
+        
+                    <div class="video-info">
+
+                        
+                        <p class="video-title"> Android 13 Go Edition - New Features and Updates Découvrez tous sur les news ici </p>
+                        <p class="video-author"> Next Concept  </p>
+                        <p class="video-stats"> 24k vues &#183; il y a 2 ans  </p>
+                    
+                    </div>
+                </div>
+            </div>
+        
+            <div class="video-preview">
+        
+                <div class="thumbnail-row">
+                    <a href="https://www.youtube.com/watch?v=W6NZfCO5SIk" target="_blank" class="video-title-link">
+                        <img class="thumbnail" src ="thumbnail-youtube/thumbnail-5.webp">
+                    </a>     
+                    <div class="video-time">48:16</div>
+    
+                </div>
+                
+                <div class="video-info-grid">
+                   
+                    <div class="channel-picture">
+                        <a href="https://www.youtube.com/@programmingwithmosh" target="_blank">
+                            <img class="profile-picture"  src="image-youtube/img5_channels_profile.jpg">
+                        </a>
+                        <div class="profile-tooltip">
+                            <div class="tooltip-content">
+                                <img class="tooltip-profile-picture" src="image-youtube/img5_channels_profile.jpg" alt="programming with mosh">
+                                <div class="tooltip-info-text">
+                                    <p class="tooltip-name-author">Programming with Mosh </p>
+                                    <p class="tooltip-subscribers">4,23M Subscribers</p>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+        
+                    <div class="video-info">
+
+                       
+                        <p class="video-title"> JavaScript Tutorial for Beginners: Learn JavaScript in 1 Hour</p>
+                        <p class="video-author"> Programming with Mosh </p>
+                        <p class="video-stats"> 16M vues &#183; il y a 6 ans </p>
+                    
+                    </div>
+                </div>
+            </div>
+        
+            <div class="video-preview">
+        
+                <div class="thumbnail-row">
+                    <a href="https://www.youtube.com/watch?v=qb5A_4WWUr0" target="_blank" class="video-title-link">
+                        <img class="thumbnail" src ="thumbnail-youtube/thumbnail-6.webp">      
+                    </a>
+                    
+                    <div class="video-time">2:57</div>
+    
+                </div>
+                
+                <div class="video-info-grid">
+                   
+                    <div class="channel-picture">
+
+                        <a href="https://www.youtube.com/@LeroyMerlinInside" target="_blank">
+                            <img class="profile-picture"  src="image-youtube/img6_channels_profile.jpg">
+                        </a>
+                        <div class="profile-tooltip">
+                            <div class="tooltip-content">
+                                <img class="tooltip-profile-picture" src="image-youtube/img6_channels_profile.jpg" alt="leroy merlin hind">
+                                <div class="tooltip-info-text">
+                                    <p class="tooltip-name-author">  Leroy Merlin Inside </p>
+                                    <p class="tooltip-subscribers">1,61k Subscribers</p>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+        
+                    <div class="video-info">
+                        
+        
+                        <p class="video-title"> Nos métiers ? Hind, Architecte Cloud | Leroy Merlin</p>
+                        <p class="video-author">  Leroy Merlin Inside</p>
+                        <p class="video-stats"> 3,5k vues &#183; il y a 2 ans  </p>
+                    
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+
+    </main>
+    
+    
+</body>
+</html>

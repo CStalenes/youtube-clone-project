@@ -1,0 +1,40 @@
+.sidebar{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    /*background-color: rgb(237, 250, 237);*/
+    width: 72px;
+    z-index: 200;
+    padding-top: 5px;
+    cursor: pointer;
+}
+/*quand l elem es tfixed il n'est plus sur la page et in n'a pas de fond*/
+
+.sidebar-link{
+    background-color: rgb(255, 249, 249);
+    height: 73px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.sidebar-link:hover{
+    background-color: rgb(237, 236, 236);
+}
+
+/* si on met un espace devant ce selector mean on cible tous les img dans ce .class */
+.sidebar-link img{
+    height: 30px;
+    margin-bottom: 4px;
+   
+}
+
+.sidebar-link div{
+    font-family: Roboto, Arial;
+    font-size: 10px;
+}
+
+/*qd ça devient un challenge de ts faire en css on utilise les flexbox*/

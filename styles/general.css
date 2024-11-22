@@ -1,0 +1,14 @@
+p{
+    font-family: Roboto, Arial;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/* pour avoir un margin pour chaque <p> contenu dans une classe dans notre page on set cette classe avec margin-top/bottom 0 */ 
+
+body{
+    margin: 0;
+    margin-top: 70px;
+    padding-left: 90px; /*Position fixed est utilisé pour crée des elem qui collent à la page pendant qu'on défile ou scroll comme l'en-tête et la sidebar */
+    background-color: rgb(248, 248, 248);
+}
+/* Pour combler la coupure des images du thumbnail par rapport au header on doit add un remborrage sur le haut du body */ 

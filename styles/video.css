@@ -1,0 +1,295 @@
+.thumbnail{
+    
+    /*height: 300px;
+    object-fit: contain;
+    object-position: center;
+    border-width: 2px;
+    border-style: solid;
+    border-color: red;
+    */
+    
+    /*display: block; plus besoin */
+    /*on met à 100% pour garder la bonne taille d'image dans la colonne du grid*/
+    width: 100%;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+
+/*.video-title{
+    width: 300px;
+}*/
+
+
+/*
+.video-author{
+    display: block;
+
+}
+
+
+.video-stats{
+    display: block;
+
+}
+*/
+
+/* On n'a plus besoin de cette classe*/
+/*
+.video-preview{
+  
+    vertical-align: top;
+    margin-right: 5px;
+}
+*/
+
+
+.video-info-grid{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+}
+
+/*.channel-picture{
+
+}
+
+.video-info{
+
+}
+*/
+
+.channel-picture{
+    position: relative;
+    display: inline-block;   
+}
+
+.profile-picture{
+    width: 36px;
+    height: 36px;
+    border-radius: 50px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;   
+}
+
+.channel-picture:hover .profile-picture {
+    transform: scale(1.1); 
+}
+
+.profile-tooltip{
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white;
+    width: 200px;
+    padding: 12px 12px;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.13);
+    border-radius: 6px;
+    position: absolute;
+    top: 60px;
+    z-index: 300;
+
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.15s;
+
+}
+
+.tooltip-content{
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.tooltip-profile-picture{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.tooltip-info-text{
+    font-size: 14px;
+}
+
+.tooltip-name-author{
+    font-weight: bold;
+    margin-bottom: 5px;
+} 
+
+.tooltip-subscribers {
+    font-size: 12px;
+    font-weight: 700;
+    color: #bbb;
+}
+
+.channel-picture:hover .profile-tooltip{
+    display: block; 
+    opacity: 1;
+}
+
+/*
+
+.profile-picture{
+    width: 36px;
+    height: 36px;
+    border-radius: 50px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+}
+
+.channel-picture:hover .profile-picture {
+    transform: scale(1.1); 
+}
+
+.profile-tooltip{
+    display: none;
+    position: absolute;
+    bottom: 50px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    width: 200px;
+    z-index: 300;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+.tooltip-content{
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.tooltip-profile-picture{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+
+}
+
+.tooltip-info-text{
+    font-size: 14px;
+
+}
+
+
+.tooltip-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.tooltip-subscribers {
+    font-size: 12px;
+    color: #bbb;
+}
+
+.channel-picture:hover .profile-tooltip{
+    display: block; 
+    opacity: 1;
+}
+
+.profile-tooltip::after{
+    content: "";
+    position: absolute;
+    bottom: -10px; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid rgba(0, 0, 0, 0.8); 
+}
+*/
+
+/* Apres qu'on ait mis les div */
+
+.video-title{
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;/* space interligne*/
+    margin-bottom: 10px;
+
+}
+
+.thumbnail-row{
+    margin-bottom: 12px;
+    position: relative;/* rien ne change tt apparait normalement*/
+}
+
+.video-author, 
+.video-stats{
+    font-size: 12px;
+    color: rgb(96,96,96);
+}
+
+/*Meme si on a reunis ces deux classe ensemble il est possible de reciblé individuellement cette meme classe deja utilisé */
+.video-author{
+    margin-bottom: 4px;
+}
+
+
+/* Notre style pour le grid apres avoir tt fait*/
+/* l heritage fonctionne avec tout ce qui touche aux texte mais n'affecte pas border margin padding */
+.video-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 16px;
+    row-gap: 40px;
+   /*text-decoration: underline;
+    border: 2px solid red;*/
+}
+
+
+
+/* last tip for project media queri*/
+@media(max-width: 750px){
+    /*that mean si on a un ecran entre 0 à 600px on affichera 2 colonnes en fr*/
+    .video-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 999px){
+    .video-grid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 1000px){
+    .video-grid{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+
+/* ajout de video-time avec notion pos absolute relative*/
+.video-time{
+    background-color: rgb(41, 41, 41);
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
+    font-family: Roboto, Arial;
+    font-weight: 500;
+    font-size: 12px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 2px;
+    
+}
+
+.video-title-link{
+    text-decoration: none;
+    color: black;
+}

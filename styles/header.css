@@ -1,0 +1,235 @@
+/*.search-bar{
+    display: block;
+
+}*/
+
+.header{
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: white;
+    /* apres avoir ecrit ça le header devient transparent et il survole les image des thumbnail dcon doit add un fond de color*/
+    /* Pour combler la coupure des images du thumbnail par rapport au header on doit add un remborrage sur le haut du body */ 
+
+    
+    /*on va add une bordure juste en bas de header pour notre age*/
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(240,240,240);
+
+
+}
+/* Pour mettre notre header horiz on doit changer notre container header dans une flexbox*/
+
+
+/*On va voir tiré de lesson css position comment faire une sidebar dans laquel on utilisera POSITION FIXE*/
+
+
+
+.first-section{
+    display: flex;
+    align-items: center;
+}
+/* Dans notre classe header la div est flex mais la div first-section ne change pas malgré la props align-item et ça c'est du au
+au fait que notre div first-section n'est pas en affichage flex donc on add cette props dans div 1st-sec pour que l'alignement se fasse*/
+/* Cela vient du fait que qd une div est affich flex alors les elems du dessous de cette div ne sont pas affecté par celle du haut*/
+.youtube-logo{
+    height: 80px;
+
+}
+
+.hamburger-menu{
+    height: 30px;
+    margin-left: 24px;
+    margin-right: 24px
+
+}
+
+.search-bar{
+    flex: 1;
+    height: 35px;
+    padding-left: 10px;
+    font-size: 17px;
+    /*border-width: 1px;
+    border-style: solid;
+    border-color:rgb(192, 192, 192);
+    on peut remplacer par */
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 2px;
+    box-shadow: inset 1px 2px 3px 
+    rgb(0,0,0,0.15); /*box-shadow inset permet de ciblé l interieur de la box et 1px pour horiz 2px pour verti et 5px pour blur*/
+    width: 0;/*afin de reduire la largeur de notre barre qd on reduit la page*/
+   
+    
+}
+
+.search-bar::placeholder{
+    font-family: Roboto, Arial;
+    font-size: 16px;
+}
+/*c'est comme ça qu'on cible le placeholder sur un elem input */
+
+
+.loupe-logo{
+    height: 25px;
+}
+
+.loupe-button{
+    height: 40px;
+    width: 66px;
+    background-color: rgb(240,240,240);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(192, 192, 192);
+    margin-left: -1px;/*REVOIR PQ Negativ */
+    margin-right: 10px;
+    /*ajout vers fin*/
+    /*position: relative;*/
+
+}
+
+.current-user-container{
+    height: 24px;
+}
+
+.loupe-button,
+.micro-button,
+.record-logo-container,
+.grid-logo-container,
+.notif-logo-container,
+.current-user-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /*on a retirer le pos rel de loupe-btn afin de void le redondance dans le code
+    comme ça on cible a la fois loupe et voice btn avec une propriete et on fera de meme en bas de cette classe
+    */   
+}
+
+/* ajout suite fin on veut add pos abs in pos relative*/
+/* en effet comme on prévoit que le comportement(affichage) de micro-btn.tooltip sera le meme que loupe-btn.tooltip alors 
+on a juste a le rajouter après , avec loup...tooltip pour qu'ils aitent le meme res*/
+.loupe-button .tooltip,
+.micro-button .tooltip,
+.record-logo-container .tooltip,
+.grid-logo-container .tooltip,
+.notif-logo-container .tooltip,
+.current-user-container .tooltip{
+    position: absolute;
+    font-family: Roboto, Arial;
+    background-color: gray;
+    color: white;
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 12px;
+    border-radius: 2px;
+    bottom: -30px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+    white-space: nowrap;/* ca evite que le text deborde en vertical*/
+}
+
+/*ici on vise only les toolip qd on va survoler(hover) le btn-loupe*/
+.loupe-button:hover .tooltip,
+.micro-button:hover .tooltip,
+.record-logo-container:hover .tooltip,
+.grid-logo-container:hover .tooltip,
+.notif-logo-container:hover .tooltip,
+.current-user-container:hover .tooltip{
+    opacity: 1;
+
+}
+
+.micro-button{
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(245,245,245);
+}
+
+.micro-logo{
+    height: 18px;
+}
+
+
+
+.middle-section{
+    
+    flex: 1;
+    margin-left: 70px;
+    margin-right: 30px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
+/* Quand un elem grandi qd on resize une page alors c'est un flex car ça occupe l'espace restant*/
+/* Qd on étant la page et que barre de recherche s'étant aussi il arrive un point de rupture ou la barre de recherche ne s'étant plus. 
+C'est là ou on utilisera max-width, cette props va limité la bar à 300px qd on etire la page*/
+.last-section{
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+/*Pour eviter(prevent) que certain elem s'ecrase(shrinking) en reduisant l'espace de la page alors flexbox a une propriété pour ça */
+/* flex-shrink :0 = don't shrink et width:0 = shrink */
+.record-logo{
+    height: 24px;
+}
+
+.grid-logo{
+    height: 24px;
+}
+
+.notif-logo{
+    height: 24px;
+
+}
+
+/*add des tips position relative absolute */
+.notif-logo-container{
+    position: relative;
+
+}
+
+.notif-count{
+    position: absolute;
+    top:-2px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-family: Roboto, Arial;
+    font-size: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 10px;
+
+
+}
+
+.current-user-logo{
+    height: 32px;
+    border-radius: 16px;
+}
+
+/*Qd on veut étandre un elem à traver un espace de façon horiz alors on  utilisera le flexbox*/
+
+/**/
+/**/
